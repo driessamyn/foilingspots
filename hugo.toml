@@ -1,0 +1,24 @@
+baseURL = 'https://foilingspots.com/'
+languageCode = 'en-us'
+title = 'Foilingspots'
+theme = 'hugo-whisper-theme'
+
+[params]
+    google_analytics_id=""
+    # homepage_intro = 'Coming soon ...'
+    # homepage_image = '/images/home.jpg'
+
+[params.homepage_meta_tags]
+    meta_description = "Foilingspots"
+    meta_og_title = "Foilingspots"
+    meta_og_type = "website"
+    meta_og_url = "https://foilingspots.com"
+    # meta_og_image = "https://raw.githubusercontent.com/JugglerX/hugo-whisper-theme/master/images/tn.png"
+    meta_og_description = "Foilingspots coming soon"
+
+# [params.logo]
+#  mobile = "/images/logo-mobile.svg"
+#    standard  = "/images/logo.svg"
+
+[params.footer]
+    copyright_text = '© 2023 Dries Samyn'
