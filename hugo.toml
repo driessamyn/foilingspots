@@ -4,7 +4,7 @@ title = 'Foilingspots'
 theme = 'hugo-whisper-theme'
 
 [params]
-    google_analytics_id=""
+    google_analytics_id="G-KMK4XE6EB0"
     # homepage_intro = 'Coming soon ...'
     # homepage_image = '/images/home.jpg'
 
