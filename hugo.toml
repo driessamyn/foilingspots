@@ -6,3 +6,9 @@ title = 'Foilingspots'
 [[module.imports]]
     path = 'github.com/gohugoio/hugo-mod-bootstrap-scss/v5'
 
+[params]
+    description = "Foilingspots, a lists of the best foiling spots around."
+    [params.homepage_meta_tags]
+        meta_og_title = "Foilingspots"
+        meta_og_type = "website"
+        meta_og_url = "https://foilingspots.com"

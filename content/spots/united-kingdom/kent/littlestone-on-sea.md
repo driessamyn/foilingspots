@@ -6,7 +6,7 @@ wind:
     - S (cross)
     - SW (cross/off)
 tides: HT
-suitable:
+disciplines:
     - wing
     - wind
     - kite

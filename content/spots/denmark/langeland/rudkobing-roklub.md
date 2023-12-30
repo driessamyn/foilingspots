@@ -5,7 +5,7 @@ parking: Free
 wind: 
     - All
 tides: HT
-suitable:
+disciplines:
     - wing
     - wind
     - efoil

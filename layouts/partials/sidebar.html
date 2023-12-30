@@ -1,0 +1,32 @@
+<style>
+    .list-group>.list-group {
+        display: none;
+        margin-bottom: 0;
+    }
+
+    .list-group-item:focus-within+.list-group, .list-group-item.current {
+        display: block;
+    }
+
+    .list-group, .list-group-item {
+        border-radius: 0;
+        border-width: 0;
+    }
+
+    .list-group>.list-group-item:first-child {
+        border-top-width: 0;
+    }
+
+    .list-group>.list-group>.list-group-item {
+        padding-left: 2.5rem;
+    }
+    
+</style>
+{{ $currentP := .RelPermalink }}
+{{ with .GetPage "/spots" }}
+    <div class="list-group">
+    {{ range .Pages }}
+        {{ partial "walk.html" (dict "currentP" $currentP "page" . ) }}
+    {{ end }}
+    </div>
+{{ end }}
