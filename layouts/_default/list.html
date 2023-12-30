@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="row h-100">
+    <div class="col-3 navbar-light bg-light">
+        {{ partial "sidebar.html" . }}
+    </div>
+    <div class="col overflow-auto h-100 py-5">
+        {{ range.Pages }}
+        {{ partial "walk.html" (dict "page" . ) }}
+        {{/*  {{ .Render "summary" }}  */}}
+        {{ end }}
+    </div>
+</div>
+{{ end }}

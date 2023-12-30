@@ -1,0 +1,10 @@
+<div class="list-group-item">
+    {{ if eq .currentP .page.RelPermalink }}
+        {{ .page.Title }}
+    {{ else }}
+        <a href="{{ .page.RelPermalink }}">{{ .page.Title }}</a>
+    {{ end }}
+    {{ range .page.Pages }}
+        {{ partial "walk.html" (dict "currentP" $.currentP "page" . ) }}
+    {{ end }}
+</div>

@@ -1,0 +1,32 @@
+{{ define "main" }}
+  <div class="row h-100">
+    <div class="col-3 navbar-light bg-light">
+      {{ partial "sidebar.html" . }}
+    </div>
+    <div class="col overflow-auto h-100 py-5">
+      <h1 class="title">{{.Title}}</h1>
+      <div class="content anchor-link-enabled">
+        <div class="card">
+          <div class="card-img-top">
+            <iframe
+                width="100%"
+                height="350"
+                frameborder="0" style="border:0"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDd_OBa53YAF97So9f2Yg55wTRF2HLN3pk&maptype=satellite&q={{ .Params.gps }}"
+                allowfullscreen>
+              </iframe>
+          </div>
+          <div class="card-body">
+            <p class="card-text"><u>Parking</u>: {{ .Params.parking }}</p>
+            <p class="card-text"><u>Wind directions</u>: {{ delimit .Params.wind ", " }}</p>
+            <p class="card-text"><u>Tides</u>: {{ delimit .Params.tides ", " }}</p>
+            <p class="card-text">{{ delimit .Params.disciplines ", " }}</p>
+          </div>
+        </div>
+
+        <div class="content" style="margin-top: 10px">{{.Content}}</div>
+      </div>
+    </div>
+  </div>
+{{ end }}
