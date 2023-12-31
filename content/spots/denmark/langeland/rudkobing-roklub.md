@@ -1,6 +1,6 @@
 ---
 title: Rudkøbing Roklub
-gps: 54°56'31.9"N 10°42'52.3"E
+gps: 54.942194, 10.714528
 parking: Free
 wind: 
     - All

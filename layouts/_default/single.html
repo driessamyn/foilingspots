@@ -13,7 +13,7 @@
                 height="350"
                 frameborder="0" style="border:0"
                 referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDd_OBa53YAF97So9f2Yg55wTRF2HLN3pk&maptype=satellite&q={{ .Params.gps }}"
+                src="https://www.google.com/maps/embed/v1/place?key={{ .Site.Params.mapsApiKey }}&maptype=satellite&q={{ .Params.gps }}"
                 allowfullscreen>
               </iframe>
           </div>

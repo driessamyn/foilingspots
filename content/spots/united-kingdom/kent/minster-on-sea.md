@@ -1,6 +1,6 @@
 ---
 title: Minster-on-Sea
-gps: 51°26'12.4"N 0°47'46.2"E
+gps: 51.436778, 0.796167
 parking: Shinglebank, Marine Parade Car Park (Free)
 wind: 
     - NW (cross/off) to NE (cross/on)
