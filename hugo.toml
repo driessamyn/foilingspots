@@ -8,6 +8,7 @@ title = 'Foilingspots'
 
 [params]
     description = "Foilingspots, a lists of the best foiling spots around."
+    mapsApiKey = 'AIzaSyDd_OBa53YAF97So9f2Yg55wTRF2HLN3pk'
     [params.homepage_meta_tags]
         meta_og_title = "Foilingspots"
         meta_og_type = "website"
