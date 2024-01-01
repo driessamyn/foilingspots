@@ -11,6 +11,8 @@ disciplines:
     - kite
     - sup
     - efoil
+contributors: 
+    - dries-samyn
 ---
 ## Description
 

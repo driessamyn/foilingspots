@@ -9,6 +9,8 @@ disciplines:
     - wing
     - wind
     - efoil
+contributors: 
+    - dries-samyn
 ---
 ## Description
 

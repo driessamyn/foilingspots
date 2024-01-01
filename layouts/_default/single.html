@@ -26,6 +26,15 @@
         </div>
 
         <div class="content" style="margin-top: 10px">{{.Content}}</div>
+        <hr>
+        <div class="contribution">
+          {{ range .Params.contributors }}
+            {{ with $.Site.GetPage (printf "/contributors/%s" .) }}
+            <a href="{{ .RelPermalink }}">{{  .Title  }}</a><br>
+            {{ end }}
+          {{ end }}
+          Last updated: {{ .Lastmod.Format "02/01/2006" }}
+        </div>
       </div>
     </div>
   </div>
