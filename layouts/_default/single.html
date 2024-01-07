@@ -26,6 +26,42 @@
         </div>
 
         <div class="content" style="margin-top: 10px">{{.Content}}</div>
+
+        {{ with .Resources.Match "images/*" }}
+        <div id="myCarousel" class="container carousel slide" style="padding: 20px;">
+          <div class="carousel-inner">
+              {{ range $i, $img := . }}
+              <div class="carousel-item {{ if not $i }}active{{ end }}">
+                {{ if eq $img.MediaType.MainType "image" }}
+                <img src="data:{{ $img.MediaType.Type }};base64,{{ $img.Content | base64Encode }}" class="w-100">
+                {{ end }}
+                {{ if eq $img.MediaType.MainType "video" }}
+                <div class="ratio ratio-4x3">
+                  <iframe class="embed-responsive-item" src="{{ $img.RelPermalink }}" allowfullscreen></iframe>
+                </div>
+                {{ end }}
+              </div>
+              {{ end }}
+              
+          
+            {{/*  <div class="carousel-item active">
+              <img src="/images/spots/denmark/langeland/rudkobing-roklub-01.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+              <img src="/images/spots/denmark/langeland/rudkobing-roklub-02.jpeg" class="d-block w-100">
+            </div>  */}}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        {{ end }}
+
         <hr>
         <div class="contribution">
           {{ range .Params.contributors }}

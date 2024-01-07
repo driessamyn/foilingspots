@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="row h-100">
+    <div class="col-3 navbar-light bg-light">
+        {{ partial "sidebar.html" . }}
+    </div>
+    <div class="col overflow-auto h-100 py-5">
+        <h1>Folingspots contributors</h1>
+        <div class="list-group">
+        {{ range.Pages }}
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}
