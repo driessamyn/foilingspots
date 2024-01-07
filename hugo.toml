@@ -1,6 +1,7 @@
 baseURL = 'https://foilingspots.com/'
 languageCode = 'en-gb'
 title = 'Foilingspots'
+enableGitInfo = true
 
 [module]
 [[module.imports]]

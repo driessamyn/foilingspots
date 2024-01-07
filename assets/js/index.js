@@ -1,7 +1,8 @@
 // Import the Bootstrap components we want to use.
 // See https://github.com/twbs/bootstrap/blob/main/js/index.umd.js
-import Toast from "js/bootstrap/src/toast";
+// import Toast from "js/bootstrap/src/toast";
 import Popover from "js/bootstrap/src/popover";
+import Carousel from "js/bootstrap/src/carousel";
 
 (function () {
   // let toastElList = [].slice.call(document.querySelectorAll(".toast"));
@@ -19,4 +20,6 @@ import Popover from "js/bootstrap/src/popover";
   // popoverTriggerList.map(function (popoverTriggerEl) {
   //   return new Popover(popoverTriggerEl);
   // });
+
+  // const carousel = new bootstrap.Carousel('#myCarousel')
 })();
