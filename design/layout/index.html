@@ -60,17 +60,17 @@
                 <div class="d-flex flex-row p-2">
                     Suitable in all tides
                 </div>
-                <div class="d-flex justify-content-center m-4">
-                    <a href="https://www.google.com/maps/dir/?api=1&destination=51.436778%2C0.796167" target="_blank">
-                        <img height="50"
+                <div class="d-flex m-2">
+                    <a class="pe-4" href="https://www.google.com/maps/dir/?api=1&destination=51.436778%2C0.796167" target="_blank">
+                        <img height="30"
                             src="https://lh3.googleusercontent.com/V0Lu6YzAVaCVcjSJ_4Qb0mR_idw-GApETGbkodvDKTH-rpDvHuD6J84jshR_FvXdl5mJxqbIHVdebYCCbQMJNxIxRaIHYFSq6z7laA">
                     </a>
-                    <a href="https://what3words.com/blubber.airstrip.happily" target="_blank">
-                        <img height="50" alt="blubber.airstrip.happily"
+                    <a class="pe-4" href="https://what3words.com/blubber.airstrip.happily" target="_blank">
+                        <img height="30" alt="blubber.airstrip.happily"
                             src="https://corpassets.what3words.com/wp-content/uploads/2022/05/what3words_HorizontalLogo_RGB_Fullcolour_ENG-1.png">
                     </a>
-                    <a href="https://www.waze.com/en/live-map/directions?latlng=51.436778%2C0.796167" target="_blank">
-                        <img height="50"
+                    <a class="pe-4" href="https://www.waze.com/en/live-map/directions?latlng=51.436778%2C0.796167" target="_blank">
+                        <img height="30"
                             src="https://lh3.googleusercontent.com/rZEsBmeRyMQczR3UUN2CurlOXQxMGCsINJXAf78NYuch-dZe_K7IomczipfYAl8-rawOeM6aaVdIsPXxVz0sp33ZTQdUg3yGuYDn">
                     </a>
                 </div>
@@ -104,6 +104,14 @@
                 </div>
             </div>
             <!-- image carousel -->
+            <style>
+                #img-carousel .carousel-item img, #img-carousel .carousel-item video {  
+                    object-fit: contain;
+                    object-position: center;
+                    overflow: hidden;
+                    height: 400px;
+                  }
+            </style>
             <div id="img-carousel" class="col-md-6 carousel slide" data-bs-ride="carousel">
                 <!-- Indicators/dots -->
                 <div class="carousel-indicators">
@@ -119,7 +127,7 @@
                     </div>
                     <div class="carousel-item">
                         <!-- TODO: figure out how to align video to top? -->
-                        <video autoplay muted loop src="i/minster-02.mp4" class="d-block w-100" height="400">
+                        <video autoplay muted loop controls src="i/minster-02.mp4" class="d-block w-100">
                             Your browser does not support the HTML5 Video element.
                         </video>
                     </div>
