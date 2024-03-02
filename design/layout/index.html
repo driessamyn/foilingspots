@@ -13,10 +13,10 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="javascript:void(0)">Foilingspots</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mynavbar">
+            <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0)">Spots</a>
@@ -40,43 +40,55 @@
             <li class="breadcrumb-item active">Minster</li>
         </ul>
         <h2>Minster-on-Sea</h2>
+        <div class="d-flex mb-2">
+            <div class="badge rounded-pill bg-info me-1">wing</div>
+            <div class="badge rounded-pill bg-info me-1">wind</div>
+            <div class="badge rounded-pill bg-info me-1">kite</div>
+            <div class="badge rounded-pill bg-info me-1">sup</div>
+            <div class="badge rounded-pill bg-info me-1">efoil</div>
+        </div>
         <div class="row mb-4">
-            <div class="col-md-6">
-                <div class="d-flex mb-2">
-                    <div class="badge rounded-pill bg-info me-1">wing</div>
-                    <div class="badge rounded-pill bg-info me-1">wind</div>
-                    <div class="badge rounded-pill bg-info me-1">kite</div>
-                    <div class="badge rounded-pill bg-info me-1">sup</div>
-                    <div class="badge rounded-pill bg-info me-1">efoil</div>
-                </div>
-                <div class="d-flex flex-row p-2">
-                    <div class="me-2">Parking:</div>
-                    <div>Shinglebank, Marine Parade Car Park (Free)</div>
-                </div>
-                <div class="d-flex flex-row p-2">
-                    <div class="me-2">Wind directions:</div>
-                    <div>NW (cross/off) to NE (cross/on)</div>
-                </div>
-                <div class="d-flex flex-row p-2">
-                    Suitable in all tides
-                </div>
-                <div class="d-flex m-2">
-                    <a class="pe-4" href="https://www.google.com/maps/dir/?api=1&destination=51.436778%2C0.796167" target="_blank">
+            <div class="col-md-6 d-flex flex-column">
+                <style>
+                #nav-icons {
+                    background-image: url("i/nav.png");
+                    background-repeat: no-repeat; 
+                    background-size: 30px;
+                    background-position: 10px center;
+                    padding: 5px 50px 5px 80px;
+                    
+                }
+                </style>
+                <div class="d-flex justify-content-evenly my-4 border rounded-4 bg-light" id="nav-icons">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=51.436778%2C0.796167" target="_blank">
                         <img height="30"
                             src="https://lh3.googleusercontent.com/V0Lu6YzAVaCVcjSJ_4Qb0mR_idw-GApETGbkodvDKTH-rpDvHuD6J84jshR_FvXdl5mJxqbIHVdebYCCbQMJNxIxRaIHYFSq6z7laA">
                     </a>
-                    <a class="pe-4" href="https://what3words.com/blubber.airstrip.happily" target="_blank">
+                    <a href="https://what3words.com/blubber.airstrip.happily" target="_blank">
                         <img height="30" alt="blubber.airstrip.happily"
                             src="https://corpassets.what3words.com/wp-content/uploads/2022/05/what3words_HorizontalLogo_RGB_Fullcolour_ENG-1.png">
                     </a>
-                    <a class="pe-4" href="https://www.waze.com/en/live-map/directions?latlng=51.436778%2C0.796167" target="_blank">
+                    <a href="https://www.waze.com/en/live-map/directions?latlng=51.436778%2C0.796167" target="_blank">
                         <img height="30"
                             src="https://lh3.googleusercontent.com/rZEsBmeRyMQczR3UUN2CurlOXQxMGCsINJXAf78NYuch-dZe_K7IomczipfYAl8-rawOeM6aaVdIsPXxVz0sp33ZTQdUg3yGuYDn">
                     </a>
                 </div>
+                <div class="my-auto border-start my-3 ms-1 ps-2 fw-lighter">
+                    <div class="d-flex flex-row p-2">
+                        <div class="me-2">Parking:</div>
+                        <div>Shinglebank, Marine Parade Car Park (Free)</div>
+                    </div>
+                    <div class="d-flex flex-row p-2">
+                        <div class="me-2">Wind directions:</div>
+                        <div>NW (cross/off) to NE (cross/on)</div>
+                    </div>
+                    <div class="d-flex flex-row p-2">
+                        Suitable in all tides
+                    </div>
+                </div>
             </div>
             <div class="col-md-6">
-                <iframe width="100%" height="250" frameborder="0" style="border:0"
+                <iframe width="100%" height="350" frameborder="0" style="border:0"
                     referrerpolicy="no-referrer-when-downgrade"
                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDd_OBa53YAF97So9f2Yg55wTRF2HLN3pk&maptype=satellite&q=51.436778,0.796167"
                     allowfullscreen>
