@@ -1,69 +1,53 @@
 {{ define "main" }}
-  <div class="row h-100">
-    <div class="col-3 navbar-light bg-light">
-      {{ partial "sidebar.html" . }}
-    </div>
-    <div class="col overflow-auto h-100 py-5">
-      <h1 class="title">{{.Title}}</h1>
-      <div class="content anchor-link-enabled">
-        <div class="card">
-          <div class="card-img-top">
-            <iframe
-                width="100%"
-                height="350"
-                frameborder="0" style="border:0"
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/place?key={{ .Site.Params.mapsApiKey }}&maptype=satellite&q={{ .Params.gps }}"
-                allowfullscreen>
-              </iframe>
-          </div>
-          <div class="card-body">
-            <p class="card-text"><u>Parking</u>: {{ .Params.parking }}</p>
-            <p class="card-text"><u>Wind directions</u>: {{ delimit .Params.wind ", " }}</p>
-            <p class="card-text"><u>Tides</u>: {{ delimit .Params.tides ", " }}</p>
-            <p class="card-text">{{ delimit .Params.disciplines ", " }}</p>
-          </div>
+{{ partial "spots-breadcrumb.html" . }}
+<h2>{{.Title}}</h2>
+<div class="d-flex mb-2">
+  {{ range .Params.disciplines }}
+  <div class="badge rounded-pill bg-info me-1">{{ . }}</div>
+  {{ end }}
+</div>
+<div class="row mb-4">
+    <div class="col-md-6 d-flex flex-column">
+        <style>
+            #nav-icons {
+                background-image: url("i/nav.png");
+                background-repeat: no-repeat;
+                background-size: 30px;
+                background-position: 10px center;
+                padding: 5px 50px 5px 80px;
+
+            }
+        </style>
+        <div class="d-flex justify-content-evenly my-4 border rounded-4 bg-light" id="nav-icons">
+          {{ partial "google-maps-link.html" .Params.gps }}
+          {{ partial "w3w-link.html" .Params.whatThreeWords }}
+          {{ partial "waze-link.html" .Params.gps }}
         </div>
-
-        <div class="content" style="margin-top: 10px">{{.Content}}</div>
-
-        {{ with .Resources.Match "images/*" }}
-        <div id="myCarousel" class="container carousel slide" style="padding: 20px;">
-          <div class="carousel-inner">
-              {{ range $i, $img := . }}
-              <div class="carousel-item {{ if not $i }}active{{ end }}">
-                {{ if eq $img.MediaType.MainType "image" }}
-                <img src="data:{{ $img.MediaType.Type }};base64,{{ $img.Content | base64Encode }}" class="w-100">
-                {{ end }}
-                {{ if eq $img.MediaType.MainType "video" }}
-                <div class="ratio ratio-4x3">
-                  <iframe class="embed-responsive-item" src="{{ $img.RelPermalink }}" allowfullscreen></iframe>
-                </div>
-                {{ end }}
-              </div>
-              {{ end }}
-              
-          
-            {{/*  <div class="carousel-item active">
-              <img src="/images/spots/denmark/langeland/rudkobing-roklub-01.jpg" class="d-block w-100">
+        <div class="my-auto border-start my-3 ms-1 ps-2 fs-6 fw-lighter">
+            <div class="d-flex flex-row p-2">
+                <div class="me-2">Parking:</div>
+                <div>{{ .Params.parking }}</div>
             </div>
-            <div class="carousel-item">
-              <img src="/images/spots/denmark/langeland/rudkobing-roklub-02.jpeg" class="d-block w-100">
-            </div>  */}}
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+            <div class="d-flex flex-row p-2">
+                <div class="me-2">Wind directions:</div>
+                <div>{{ delimit .Params.wind ", " }}</div>
+            </div>
+            <div class="d-flex flex-row p-2">
+              <div class="me-2">Tides:</div>
+              <div>{{ .Params.tides }}</div>
+            </div>
         </div>
-        {{ end }}
-
-        <hr>
-        <div class="contribution">
+    </div>
+    <div class="col-md-6">
+        {{ partial "google-maps-embed.html" .Params.gps }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 mb-4 fw-normal">
+      {{ .Content }}
+        <!-- TODO: align bottom -->
+        <div class="fs-6 text-muted">
+          Contribution:<br>
           {{ range .Params.contributors }}
             {{ with $.Site.GetPage (printf "/contributors/%s" .) }}
             <a href="{{ .RelPermalink }}">{{  .Title  }}</a><br>
@@ -71,7 +55,60 @@
           {{ end }}
           Last updated: {{ .Lastmod.Format "02/01/2006" }}
         </div>
-      </div>
     </div>
-  </div>
+    <!-- image carousel -->
+    {{ with .Resources.Match "images/*" }}
+    <style>
+        #img-carousel {
+          background-color: black;
+        }
+        #img-carousel .carousel-item img,
+        #img-carousel .carousel-item video {
+            object-fit: contain;
+            object-position: center;
+            overflow: hidden;
+            height: 400px;
+        }
+    </style>
+    <div id="img-carousel" class="col-md-6 carousel slide" data-bs-ride="carousel">
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+          {{ range $i, $img := . }}
+          <button type="button" data-bs-target="#img-carousel" data-bs-slide-to="{{ $i }}" class="{{ if not $i }}active{{ end }}"></button>
+          {{ end }}
+        </div>
+
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+          {{ range $i, $img := . }}
+          <div class="carousel-item {{ if not $i }}active{{ end }}">
+            {{ if eq $img.MediaType.MainType "image" }}
+            <img src="{{ $img.RelPermalink }}" class="d-block w-100">
+            {{ end }}
+            {{ if eq $img.MediaType.MainType "video" }}
+            <!-- TODO: figure out how to align video to top? -->
+            <video autoplay muted loop controls src="{{ $img.RelPermalink }}" class="d-block w-100">
+                Your browser does not support the HTML5 Video element.
+            </video>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#img-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#img-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    {{ end }}
+</div>
+<!-- windy widget -->
+<div data-windywidget="forecast" data-thememode="white" data-spotid="{{ .Params.windySpotId }}"
+    data-appid="8163101170db103cf9187b5f89bcc5fa">
+</div>
+<script async="true" data-cfasync="false"
+    src="https://windy.app/widgets-code/forecast/windy_forecast_async.js?v1.4.6"></script>
 {{ end }}

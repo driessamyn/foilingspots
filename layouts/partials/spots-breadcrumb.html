@@ -1,0 +1,11 @@
+<div class="btn-group">
+    <a href="/spots/" class="btn">Spots</a>
+    {{/*  Ancestor pages  */}}
+    {{ range .Ancestors.Reverse }}
+    {{ if and (ne .RelPermalink "/") (ne .RelPermalink "/spots/") }}
+    {{ partial "spots-breadcrumb-button.html" . }}
+    {{ end }}
+    {{ end }}
+    {{/*  Current page  */}}
+    {{ partial "spots-breadcrumb-button.html" . }}
+</div>
