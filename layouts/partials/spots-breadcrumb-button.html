@@ -1,0 +1,15 @@
+{{ $currentP := .RelPermalink }}
+<div class="btn-group">
+    <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+        {{ .Title }}
+    </button>
+    <ul class="dropdown-menu">
+        {{ range .Parent.Pages }}
+        {{ if eq $currentP .RelPermalink }}
+        <li><a class="dropdown-item active" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ else }}
+        <li><a class="dropdown-item" href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+        {{ end }}
+    </ul>
+</div>

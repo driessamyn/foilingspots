@@ -2,6 +2,8 @@
 title: Littlestone-on-Sea
 gps: 50.976694, 0.967111
 parking: Coast Drive Car Park (Ringgo 7518)
+whatThreeWords: increases.succeed.costumes
+windySpotId: 354205
 wind: 
     - S (cross)
     - SW (cross/off)
